@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import {Button} from 'reactstrap';
+import Table1 from './Table1';
+
  
 class Database extends Component {
   constructor(){
     super();
-    this.state ={data:[]}
+    this.state ={rows:[]}
   }
 
   showDB(event){
@@ -17,7 +19,7 @@ class Database extends Component {
       .then(function(respose){
         respose.json()
         .then(function(data){
-          that.setState({data:data})
+          that.setState({rows:data})
           console.log(data);
         })
       })
@@ -28,7 +30,9 @@ class Database extends Component {
       <div>
       <Button color="success" onClick={this.showDB.bind(this)}> Show Database </Button>
       <br/>
-        <ul> {this.state.data.map(person => <li key={person.tableid}> {person.tableid},{person.devicetype},{person.c0r0},{person.c1r0},{person.c2r0},{person.c0r1},{person.c1r1},{person.c2r1},{person.c0r2},{person.c1r2},{person.c2r2}</li>)}</ul>
+      <br/>
+       <Table1 data={this.state.rows}/>
+      
       </div>
     );
   }
