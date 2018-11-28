@@ -6,7 +6,7 @@ import Table1 from './Table1';
 class Database extends Component {
   constructor(){
     super();
-    this.state ={rows:[]}
+    this.state ={data:[]}
   }
 
   showDB(event){
@@ -19,19 +19,20 @@ class Database extends Component {
       .then(function(respose){
         respose.json()
         .then(function(data){
-          that.setState({rows:data})
+          that.setState({data:data})
           console.log(data);
         })
       })
 
   }
   render() {
+     let rows = this.state.data;
       return (
       <div>
       <Button color="success" onClick={this.showDB.bind(this)}> Show Database </Button>
       <br/>
       <br/>
-       <Table1 data={this.state.rows}/>
+       <Table1 data={rows}/>
       
       </div>
     );
