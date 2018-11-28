@@ -16,7 +16,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server.js",
-    "build": "cd client && react-scripts build"
+    "build": "cd client && react-scripts build",
+	"heroku-post-build":"npm run build --prefix client"
 	 },
   "author": "pdixit26 <pdixit26@gmail.com>",
   "license": "ISC"
