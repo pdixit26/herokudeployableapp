@@ -55,7 +55,7 @@ class Home extends Component {
     	c2r1: this.state.c2r1,
     	c2r2: this.state.c2r2
     }
-
+     console.log(data);
      var request = new Request('/api/new-table',{
       method: 'POST',
       headers: new Headers({ 'Content-Type':'application/json'}),
