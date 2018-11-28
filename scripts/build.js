@@ -1,0 +1,1 @@
+cd ../client && react-script build
