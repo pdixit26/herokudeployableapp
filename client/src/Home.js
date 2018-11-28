@@ -56,7 +56,7 @@ class Home extends Component {
     	c2r2: this.state.c2r2
     }
 
-     var request = new Request('http://localhost:3000/api/new-table',{
+     var request = new Request('https://herokudeployableapp.herokuapp.com/#/api/new-table',{
       method: 'POST',
       headers: new Headers({ 'Content-Type':'application/json'}),
       body: JSON.stringify(data)
