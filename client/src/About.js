@@ -8,7 +8,7 @@ class About extends Component {
         <p>This project is a simple page application using PERN stack. I have used</p>
         <ul>
           <li>React.js as frontend framework.</li>
-          <li>Node-Express for server-client commnunication.</li>
+          <li>Node-Express for server-client communication.</li>
           <li>REST APIs to connect frontend to the backend.</li>
           <li>PostgreSQL as database for table storage.</li>
           <li>This project is deployed on Heroku and hence using heroku postgres.</li>
