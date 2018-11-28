@@ -12,7 +12,10 @@ class About extends Component {
           <li>REST APIs to connect frontend to the backend.</li>
           <li>PostgreSQL as database for table storage.</li>
         </ol>
-        <p>Sourcecode of this project is available here: <a href="https://github.com/pdixit26/iProject">https://github.com/pdixit26/iProject </a></p>
+        <ul>
+        <li>Sourcecode of this project is available here: <a href="https://github.com/pdixit26/herokudeployableapp">https://github.com/pdixit26/herokudeployableapp </a></li>
+        <li></li>
+         </ul>
       </div>
     );
   }
