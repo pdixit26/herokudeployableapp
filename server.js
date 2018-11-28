@@ -14,7 +14,7 @@ let pool = new pg.Pool({
 	URI:'postgres://eiaoajsjlvxvrh:a9a767395474163d8655129c34883defecb251a43f18930323d7d4a1864eeab0@ec2-54-204-40-248.compute-1.amazonaws.com:5432/ddgc2v02mk1eqa'
 });
 
-
+/*
 pool.connect((err, db, done) =>{
 	if(err){
 		return console.log("pooja "+ err);
@@ -45,7 +45,7 @@ pool.connect((err, db, done) =>{
 		})
 	}
 });
-
+*/
 
 let app = express();
 
@@ -66,6 +66,33 @@ app.use(express.static('client/build'));
 app.get('*',(req,res) =>{
 	res.sendFile(path.resolve(__dirname,'client','build','index.html'));
 });
+
+app.get('/api/rows',function(req,res){
+
+	pool.connect((err, db, done) =>{
+	if(err){
+		return console.log("pooja post"+ err);
+	}
+	else {
+		
+		//db.query('INSERT INTO DeviceTable (tableid,devicetype,c1r0,c1r1,c1r2,c2r0,c2r1,c2r2,c0r0,c0r1,c0r2) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)', [tableid,devicetype,c1r0,c1r1,c1r2,c2r0,c2r1,c2r2,c0r0,c0r1,c0r2], (err, table) => {
+		db.query('SELECT * FROM  deviceinfo', (err, table) => {
+			
+			if(err)
+			{
+				return res.status(400).send(err);
+			}
+			else
+			{
+				console.log("DATA found!!");
+				return res.status(201).send(table.rows);
+				db.end();
+			}
+		})
+	}
+});
+
+})
 
 
 app.post('/api/new-table', function(req, res){
